@@ -41,7 +41,8 @@ enum ColorSeed {
   yellow('Yellow', Colors.yellow),
   orange('Orange', Colors.orange),
   deepOrange('Deep Orange', Colors.deepOrange),
-  pink('Pink', Colors.pink);
+  pink('Pink', Colors.pink),
+  custom('Custom', Colors.grey);
 
   const ColorSeed(this.label, this.color);
   final String label;
@@ -81,6 +82,7 @@ class _Material3DemoState extends State<Material3Demo>
   }
 
   ColorSeed colorSelected = ColorSeed.baseColor;
+  Color customColor = Colors.blueGrey;
   int screenIndex = ScreenSelected.component.value;
 
   @override

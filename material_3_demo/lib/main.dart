@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:material_3_demo/material_color_picker.dart';
 
 import 'color_palettes_screen.dart';
 import 'component_screen.dart';
@@ -41,7 +42,8 @@ enum ColorSeed {
   yellow('Yellow', Colors.yellow),
   orange('Orange', Colors.orange),
   deepOrange('Deep Orange', Colors.deepOrange),
-  pink('Pink', Colors.pink);
+  pink('Pink', Colors.pink),
+  custom('Custom', Colors.grey);
 
   const ColorSeed(this.label, this.color);
   final String label;
@@ -81,6 +83,7 @@ class _Material3DemoState extends State<Material3Demo>
   }
 
   ColorSeed colorSelected = ColorSeed.baseColor;
+  Color? customColor;
   int screenIndex = ScreenSelected.component.value;
 
   @override
@@ -153,7 +156,11 @@ class _Material3DemoState extends State<Material3Demo>
     });
   }
 
-  void handleColorSelect(int value) {
+  Future handleColorSelect(int value) async {
+    customColor = null;
+    if (ColorSeed.custom.index == value) {
+      customColor = await pickCustomColor(context);
+    }
     setState(() {
       colorSelected = ColorSeed.values[value];
     });
@@ -294,12 +301,12 @@ class _Material3DemoState extends State<Material3Demo>
       title: 'Material 3',
       themeMode: themeMode,
       theme: ThemeData(
-        colorSchemeSeed: colorSelected.color,
+        colorSchemeSeed: customColor ?? colorSelected.color,
         useMaterial3: useMaterial3,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed: colorSelected.color,
+        colorSchemeSeed: customColor ?? colorSelected.color,
         useMaterial3: useMaterial3,
         brightness: Brightness.dark,
       ),
