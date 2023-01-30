@@ -430,7 +430,8 @@ class _ColorSeedButton extends StatelessWidget {
 
           return PopupMenuItem(
             value: index,
-            enabled: currentColor != colorSelected,
+            enabled: currentColor != colorSelected ||
+                currentColor == ColorSeed.custom,
             child: Wrap(
               children: [
                 Padding(
