@@ -14,16 +14,16 @@ void main() {
   runApp(
     const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Material3Demo(),
+      home: XMaterial3Demo(),
     ),
   );
 }
 
-class Material3Demo extends StatefulWidget {
-  const Material3Demo({super.key});
+class XMaterial3Demo extends StatefulWidget {
+  const XMaterial3Demo({super.key});
 
   @override
-  State<Material3Demo> createState() => _Material3DemoState();
+  State<XMaterial3Demo> createState() => _XMaterial3DemoState();
 }
 
 // NavigationRail shows if the screen width is greater or equal to
@@ -59,7 +59,7 @@ enum ScreenSelected {
   final int value;
 }
 
-class _Material3DemoState extends State<Material3Demo>
+class _XMaterial3DemoState extends State<XMaterial3Demo>
     with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   late final AnimationController controller;

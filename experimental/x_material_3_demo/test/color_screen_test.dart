@@ -5,8 +5,8 @@
 // ignore_for_file: avoid_types_on_closure_parameters
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:material_3_demo/color_palettes_screen.dart';
-import 'package:material_3_demo/main.dart';
+import 'package:x_material_3_demo/color_palettes_screen.dart';
+import 'package:x_material_3_demo/main.dart';
 
 import 'component_screen_test.dart';
 
@@ -16,7 +16,7 @@ void main() {
       'on NavigationBar', (tester) async {
     widgetSetup(tester, 449);
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const MaterialApp(home: XMaterial3Demo()));
 
     expect(find.text('Light ColorScheme'), findsNothing);
     expect(find.text('Dark ColorScheme'), findsNothing);
@@ -45,7 +45,7 @@ void main() {
     widgetSetup(
         tester, 1200); // NavigationRail shows only when width is > 1000.
     addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
-    await tester.pumpWidget(const MaterialApp(home: Material3Demo()));
+    await tester.pumpWidget(const MaterialApp(home: XMaterial3Demo()));
     await tester.pumpAndSettle();
     expect(find.text('Light ColorScheme'), findsNothing);
     expect(find.text('Dark ColorScheme'), findsNothing);
